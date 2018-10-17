@@ -1,6 +1,8 @@
 'use strict';
 
 import React from 'react';
+import NoteForm from '../components/NoteForm';
+import NoteList from '../components/NoteList';
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -31,7 +33,9 @@ class Dashboard extends React.Component {
       <div className="dashboard">
         <h1>Dashboard</h1>
         {/* Note Form goes here */}
+        <NoteForm addNote={this.addNote} />
         {/* Note List goes here */}
+        <NoteList notes={this.state.notes} destroyNote={this.removeNote} />
         {/* (STRETCH) Delete All button goes here */}
       </div>
     );
