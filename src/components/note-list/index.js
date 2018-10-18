@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react';
-import NoteItem from '../components/NoteItem';
+import NoteItem from '../note-item';
 
 export default class NoteList extends React.Component {
   constructor(props) {

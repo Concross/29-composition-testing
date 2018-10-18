@@ -1,10 +1,8 @@
 'use strict';
 
-import './styles/main.scss';
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Landing from './pages/Landing';
-import Dashboard from './pages/Dashboard';
+import Landing from '../landing';
+import Dashboard from '../dashboard';
 
 import {
   BrowserRouter as Router,
@@ -12,7 +10,7 @@ import {
   Link,
 } from 'react-router-dom';
 
-class App extends React.Component {
+export default class App extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -37,5 +35,3 @@ class App extends React.Component {
     );
   }
 }
-
-ReactDOM.render(<App />, document.getElementById('root'));

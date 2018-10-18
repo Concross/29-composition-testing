@@ -1,8 +1,8 @@
 'use strict';
 
 import React from 'react';
-import NoteForm from '../components/NoteForm';
-import NoteList from '../components/NoteList';
+import NoteForm from '../note-create-form';
+import NoteList from '../note-list';
 
 class Dashboard extends React.Component {
   constructor(props) {

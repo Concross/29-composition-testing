@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react';
-import Note from '../models/note';
+import Note from '../../models/note';
 
 export default class NoteForm extends React.Component {
   constructor(props) {
