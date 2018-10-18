@@ -1,53 +1,33 @@
-![cf](http://i.imgur.com/7v5ASc8.png) 29: To Do
+# React TODO App!
 ===
 
-## Submission Instructions
-  * Work in a fork of this repository
-  * Work in a branch on your fork
-  * Write all of your code in a directory named `lab-` + `<your name>` **e.g.** `lab-duncan`
-  * Submit a pull request to this repository
-  * Submit a link to your pull request on canvas
-  * Submit a question, observation, and how long you spent on canvas 
-  
-## Learning Objectives  
-* Students will learn about composition vs inheritance
-* Students will learn to compose react components using props
+## App Component
+* The App component manages the frontend routes with a navbar
+* the `/` route displays the `Landing` component
+* the `/dashboard` displays the `Dashboard` component
 
-## Requirements  
- 
-#### Feature Tasks 
-Refactor and add the following components 
+## Landing Component
+* The Landing component displays a brief description of the notes app
 
-###### NoteUpdateForm 
-Create a NoteUpdateForm component that inherits a note through props and onSubmit is able to update the App's state with an updated note.
+## Dashboard Component 
+* The Dashboard component manages the entire **application state**
+* The state contains a notes array
+* It has a bound `addNote(note)` method that adds a note to `state.notes`
+  * each note that gets added has the following data
+    * `id`: contains the result of `uuid.v1()`
+    * `editing`: false by default
+    * `completed`: false by default
+    * `content`: user provided content
+    * `title`: user provided title
+* It has a bound `removeNote(note)` method that removes a note from `state.notes`
 
-###### Refactor the NoteItem to have the following behavior
-If the user double clicks on the notes content it should switch to the Edit View  
-* Default view  
-  * Display the notes content and a delete button
-  * Display a delete button that will remove the Note from the application's state
-* Edit View 
-  * Show the NoteUpdateForm and a Cancel Button
-    * onSubmit or click of the cancel button in NoteUpdateForm it should switch back to the default view
+## NoteForm Component
+* `onComplete` the NoteForm adds a note to the application state
 
-###### App Component Tree
-Your components should be nested in the following layout  
-``` 
-App
-  NoteCreateForm
-  NoteList
-    NoteItem
-      NoteUpdateForm
-```
+## NoteList Component 
+* displays an unordered list of NoteItem components
 
-#### Test
-* Test NoteCreateForm
-  * Test your onChange handler
-  * Test your onSubmit handler
-* Test NoteItem
-  * Test the NoteItem's ability to remove a note from the App's state
-* Test NoteUpdateForm
-  * Test the NoteUpdatesForm's ability to update a note in the App's state
-
-#### Documentation  
-Write a description of the project in your README.md
+## NoteItem
+* displays the notes content and title
+* displays a delete button
+  * `onClick` removes the note from the application state
