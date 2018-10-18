@@ -3,7 +3,7 @@
 import React from 'react';
 import Note from '../../models/note';
 
-export default class NoteForm extends React.Component {
+export default class NoteCreateForm extends React.Component {
   constructor(props) {
     super(props);
 
