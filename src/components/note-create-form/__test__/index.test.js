@@ -111,6 +111,21 @@ describe('NoteCreateForm component', () => {
   });
 
   test('should call onComplete when a submit event has been emitted from the form', () => {
+    let onComplete = sinon.spy(NoteCreateForm.prototype, 'onComplete');
 
+    let wrapper = Enzyme.shallow(<NoteCreateForm />);
+    wrapper.setProps({ addNote: sinon.fake() });
+
+    const event = {
+      preventDefault: sinon.fake(),
+      target: {
+        title: 'My title',
+        content: 'My content',
+      }
+    };
+
+    wrapper.find('form').simulate('submit', event);
+
+    expect(onComplete.calledOnce).toBe(true);
   });
 });
