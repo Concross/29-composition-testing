@@ -4,7 +4,7 @@
   "description": "![cf](http://i.imgur.com/7v5ASc8.png) 28: To Do ===",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --coverage",
     "watch": "webpack-dev-server --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
     "lint": "eslint **/*.js"
@@ -29,6 +29,7 @@
     "babel-preset-stage-0": "^6.24.1",
     "css-loader": "^1.0.0",
     "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.6.0",
     "eslint": "^5.7.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-react": "^7.11.1",
@@ -46,6 +47,8 @@
     "webpack-merge": "^4.1.4"
   },
   "dependencies": {
+    "babel-plugin-transform-react-constant-elements": "^6.23.0",
+    "babel-plugin-transform-react-inline-elements": "^6.22.0",
     "dotenv": "^6.1.0",
     "react-router-dom": "^4.3.1",
     "superagent": "^4.0.0-beta.5",
