@@ -1,0 +1,64 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+nav {
+  background-color: #222;
+  padding: 20px 1em 0px 1em;
+  color: white;
+
+  h1 {
+    padding-left: 10px;
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+
+    li {
+      display: inline-block;
+      padding: 10px;
+
+      &:hover{
+        background-color: white;
+
+        a {
+          color: black;
+        }
+      }
+    }
+  }
+}
+
+#main-content {
+  padding: 1em;
+}
+
+.note-list ul {
+  padding-left: 0;
+
+  li {
+    list-style-position:inside
+  }
+}
+
+#create-note-form {
+  input {
+    margin-left: 1em;
+  }
+
+  label {
+    display: block;
+    padding-bottom: 5px;
+  }
+}
+
+.note .title, .note .content {
+  display: inline;
+}
