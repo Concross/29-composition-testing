@@ -127,5 +127,23 @@ describe('NoteCreateForm component', () => {
     wrapper.find('form').simulate('submit', event);
 
     expect(onComplete.calledOnce).toBe(true);
+    onComplete.restore();
+  });
+
+  test('should reset the state when a submite event has been emitted from the form', () => {
+    let wrapper = Enzyme.shallow(<NoteCreateForm />);
+    wrapper.setProps({ addNote: sinon.fake() });
+
+    const event = {
+      preventDefault: sinon.fake(),
+      target: {
+        title: 'My title',
+        content: 'My content',
+      }
+    };
+
+    wrapper.find('form').simulate('submit', event);
+    expect(wrapper.state().title).toBe('');
+    expect(wrapper.state().content).toBe('')
   });
 });
