@@ -21,4 +21,22 @@ describe('NoteItem component', () => {
     expect(destroySpy.calledOnce).toBe(true);
     destroySpy.restore();
   });
+
+  test('destroy should remove a note from the dashboard notes state', () => {
+    const state = {
+      notes: ['note'],
+    };
+
+    const wrapper = Enzyme.shallow(<NoteItem note={state.notes[0]} />);
+
+    wrapper.setProps({
+      destroyNote: note => {
+        state.notes.splice(0, 1);
+      },
+    });
+
+    wrapper.find('button').simulate('click');
+    expect(state.notes.length).toBe(0);
+
+  });
 });
