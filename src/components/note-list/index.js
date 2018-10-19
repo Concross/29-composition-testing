@@ -1,13 +1,7 @@
-'use strict';
-
 import React from 'react';
 import NoteItem from '../note-item';
 
 export default class NoteList extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div className="note-list">
@@ -15,7 +9,7 @@ export default class NoteList extends React.Component {
         <ul>
           {this.props.notes.map((note, i) => {
             return (
-              <NoteItem key={i} note={note} destroyNote={this.props.destroyNote} />
+              <NoteItem key={i} note={note} editNote={this.props.editNote} cancelEdit={this.props.cancelEdit} destroyNote={this.props.destroyNote} updateNote={this.props.updateNote} />
             );
           })}
         </ul>

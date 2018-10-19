@@ -1,20 +1,14 @@
-'use strict';
-
-import React from 'react';
-import Landing from '../landing';
-import Dashboard from '../dashboard';
-
 import {
   BrowserRouter as Router,
   Route,
   Link,
 } from 'react-router-dom';
+import React from 'react';
+import Landing from '../landing';
+import Dashboard from '../dashboard';
+
 
 export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <Router>
