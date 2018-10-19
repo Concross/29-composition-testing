@@ -130,7 +130,7 @@ describe('NoteCreateForm component', () => {
     onComplete.restore();
   });
 
-  test('should reset the state when a submite event has been emitted from the form', () => {
+  test('should reset the state title when a submite event has been emitted from the form', () => {
     let wrapper = Enzyme.shallow(<NoteCreateForm />);
     wrapper.setProps({ addNote: sinon.fake() });
 
@@ -144,6 +144,37 @@ describe('NoteCreateForm component', () => {
 
     wrapper.find('form').simulate('submit', event);
     expect(wrapper.state().title).toBe('');
-    expect(wrapper.state().content).toBe('')
+  });
+
+  test('should reset the state content when a submite event has been emitted from the form', () => {
+    let wrapper = Enzyme.shallow(<NoteCreateForm />);
+    wrapper.setProps({ addNote: sinon.fake() });
+
+    const event = {
+      preventDefault: sinon.fake(),
+      target: {
+        title: 'My title',
+        content: 'My content',
+      }
+    };
+
+    wrapper.find('form').simulate('submit', event);
+    expect(wrapper.state().content).toBe('');
+  });
+
+  test('onComplete should prevent refresh when a submit event has been emitted from the form', () => {
+    let wrapper = Enzyme.shallow(<NoteCreateForm />);
+    wrapper.setProps({ addNote: sinon.fake() });
+
+    const event = {
+      preventDefault: sinon.spy(),
+      target: {
+        title: 'My title',
+        content: 'My content',
+      }
+    };
+
+    wrapper.find('form').simulate('submit', event);
+    expect(event.preventDefault.calledOnce).toBe(true);
   });
 });
