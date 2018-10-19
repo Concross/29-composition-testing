@@ -1,5 +1,3 @@
-'use strict';
-
 require('dotenv').config();
 
 const { DefinePlugin } = require('webpack');
@@ -48,4 +46,4 @@ webpackConfig.module.rules = [{
       cacheDirectory: true,
     },
   },
-},];
+}];

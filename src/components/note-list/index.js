@@ -1,13 +1,7 @@
-'use strict';
-
 import React from 'react';
 import NoteItem from '../note-item';
 
 export default class NoteList extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div className="note-list">

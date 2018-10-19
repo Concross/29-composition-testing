@@ -1,5 +1,3 @@
-'use strict';
-
 import React from 'react';
 import NoteForm from '../note-create-form';
 import NoteList from '../note-list';
@@ -21,7 +19,7 @@ class Dashboard extends React.Component {
   }
 
   removeNote(note) {
-    let notes = this.state.notes;
+    const notes = this.state.notes;
 
     notes.splice(notes.indexOf(note), 1);
 
