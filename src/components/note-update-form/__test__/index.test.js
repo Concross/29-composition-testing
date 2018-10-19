@@ -8,10 +8,13 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('NoteUpdateForm component', () => {
   test('render', () => {
-    const wrapper = Enzyme.shallow(<NoteUpdateForm />);
-    expect(wrapper.exists()).toBe(true);
-  });
+    const note = {
+      title: '',
+      content: '',
+    };
 
-  test('test description', () => {
+    const wrapper = Enzyme.shallow(<NoteUpdateForm note={note} />);
+
+    expect(wrapper.exists()).toBe(true);
   });
 });
