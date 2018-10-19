@@ -11,6 +11,7 @@ class Dashboard extends React.Component {
     this.addNote = this.addNote.bind(this);
     this.removeNote = this.removeNote.bind(this);
     this.editNote = this.editNote.bind(this);
+    this.cancelEdit = this.cancelEdit.bind(this);
   }
 
   addNote(note) {
@@ -31,7 +32,13 @@ class Dashboard extends React.Component {
     const notes = this.state.notes;
 
     note.isEditing = true;
+    this.setState({ notes });
+  }
 
+  cancelEdit(note) {
+    const notes = this.state.notes;
+
+    note.isEditing = false;
     this.setState({ notes });
   }
 
@@ -42,7 +49,7 @@ class Dashboard extends React.Component {
         {/* Note Form goes here */}
         <NoteForm addNote={this.addNote} />
         {/* Note List goes here */}
-        <NoteList notes={this.state.notes} editNote={this.editNote} destroyNote={this.removeNote} />
+        <NoteList notes={this.state.notes} editNote={this.editNote} cancelEdit={this.cancelEdit} destroyNote={this.removeNote} />
         {/* (STRETCH) Delete All button goes here */}
       </div>
     );

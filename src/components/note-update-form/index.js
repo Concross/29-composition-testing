@@ -9,26 +9,37 @@ export default class NoteUpdateForm extends React.Component {
       title: this.props.note.title,
       content: this.props.note.content,
     };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
+
 
   handleChange(e) {
     const name = e.target.name;
     this.setState({ [name]: e.target.value });
   }
 
+  handleClick(e) {
+    this.props.cancelEdit(this.props.note);
+  }
+
   render() {
     return (
-      <form id="update-note-form" onSubmit={this.onComplete}>
-        <label htmlFor="title">
-          Title:
-          <input type="text" name="title" value={this.state.title} placeholder="Buy milk" onChange={this.handleChange} autoComplete="off" />
-        </label>
-        <label htmlFor="content">
-          Content:
-          <input type="text" name="content" value={this.state.content} placeholder="Details..." onChange={this.handleChange} autoComplete="off" />
-        </label>
-        <button type="submit">Add item</button>
-      </form>
+      <div id="update-note-form-container">
+        <form id="update-note-form" onSubmit={this.onComplete}>
+          <label htmlFor="title">
+            Title:
+            <input type="text" name="title" value={this.state.title} placeholder="Buy milk" onChange={this.handleChange} autoComplete="off" />
+          </label>
+          <label htmlFor="content">
+            Content:
+            <input type="text" name="content" value={this.state.content} placeholder="Details..." onChange={this.handleChange} autoComplete="off" />
+          </label>
+          <button type="submit">Update note</button>
+        </form>
+        <button onClick={this.handleClick}>Cancel</button>
+      </div>
     );
   }
 }

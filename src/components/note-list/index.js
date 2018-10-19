@@ -9,7 +9,7 @@ export default class NoteList extends React.Component {
         <ul>
           {this.props.notes.map((note, i) => {
             return (
-              <NoteItem key={i} note={note} editNote={this.props.editNote} destroyNote={this.props.destroyNote} />
+              <NoteItem key={i} note={note} editNote={this.props.editNote} cancelEdit={this.props.cancelEdit} destroyNote={this.props.destroyNote} />
             );
           })}
         </ul>
