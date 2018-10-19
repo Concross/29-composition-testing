@@ -21,7 +21,7 @@ export default class NoteItem extends React.Component {
     if (this.props.note.isEditing) {
       return (
         <div id="note">
-          <NoteUpdateForm note={this.props.note} cancelEdit={this.props.cancelEdit} />
+          <NoteUpdateForm note={this.props.note} cancelEdit={this.props.cancelEdit} updateNote={this.props.updateNote} />
         </div>
       );
     }

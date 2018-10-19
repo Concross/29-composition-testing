@@ -10,10 +10,15 @@ export default class NoteUpdateForm extends React.Component {
       content: this.props.note.content,
     };
 
+    this.onComplete = this.onComplete.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
+  onComplete(e) {
+    e.preventDefault();
+    this.props.updateNote(this.props.note, this.state.title, this.state.content);
+  }
 
   handleChange(e) {
     const name = e.target.name;
@@ -23,6 +28,7 @@ export default class NoteUpdateForm extends React.Component {
   handleClick(e) {
     this.props.cancelEdit(this.props.note);
   }
+
 
   render() {
     return (
