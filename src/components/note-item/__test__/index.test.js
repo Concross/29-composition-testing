@@ -10,12 +10,18 @@ import NoteItem from '../index';
 
 describe('NoteItem component', () => {
 
+  // TODO(connor): test that destroy is called. Need to find a way to set note prop
   test('should call destroy when delete button is clicked', () => {
     let destroySpy = sinon.spy(NoteItem.prototype, 'destroy');
-    let wrapper = Enzyme.shallow(<NoteItem />);
+    let note = {
+      title: '',
+      content: '',
+    };
+    let wrapper = Enzyme.shallow(<NoteItem note={note} />);
+
+    wrapper.setProps({ destroyNote: sinon.fake() });
 
     wrapper.find('button').simulate('click');
-
     expect(destroySpy.calledOnce).toBe(true);
   });
 });
